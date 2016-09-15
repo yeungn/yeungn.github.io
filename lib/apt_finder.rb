@@ -1,5 +1,2 @@
-require "apt_finder/version"
-
-module AptFinder
-  # Your code goes here...
-end
+require_relative "apt_finder/version"
+require_relative "apt_finder/cli"
