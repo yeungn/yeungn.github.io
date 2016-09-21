@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["yeungn"]
   spec.email         = ["nin.yeung@gmail.com"]
 
-  spec.summary       = %q{A simple Cli Gem to get apt for rent listings in NYC}
+  spec.summary       = %q{Apartment Finder Cli Scraper Gem}
   spec.description   = %q{Scraper to get current listings from Apartmentfinder.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/yeungn/apt-finder-cli-gem"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
