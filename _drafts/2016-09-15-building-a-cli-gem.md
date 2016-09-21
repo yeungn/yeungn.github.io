@@ -5,9 +5,11 @@ permalink: /building-a-cli-gem/
 date:   2016-09-15 17:23:54
 ---
 
-Goal today is to write about the process on building a [CLI](https://en.wikipedia.org/wiki/Command-line_interface) [Ruby Gem](https://rubygems.org/). This simple application will allow a user to grab the latest apartment listing rentals available.
+My goal today is to write a step by step process on building a [CLI](https://en.wikipedia.org/wiki/Command-line_interface) [Ruby Gem](https://rubygems.org/). This simple application will allow a user to grab the latest apartment listing from Apartment Finder.
 
-# Getting Started
+******* insertting video screen cast here *******
+
+# 1.  Getting Started
 
 What you need to build this CLI Gem:
 
@@ -15,50 +17,48 @@ What you need to build this CLI Gem:
   2.  [RVM](https://rvm.io/) (optional)
   3.  [Sublime Text](https://www.sublimetext.com/) *(my choice at the time of this writing)*
   4.  [Terminal](https://en.wikipedia.org/wiki/Terminal_(OS_X)) (Mac)
-  5.  [Ruby Gem Account](https://rubygems.org/sign_up)
+  5.  [Ruby Gems Account](https://rubygems.org/sign_up) to host your gem
 
-  The first thing I did I watched a video that Avi made for us and helped walked us through most all of the process. The only part he did not include is the site that we will be picking to get data from. His instructions are pretty easy to understand. If it wasnt for the video that were availible to me, I dont think I can come up with this all by myself.
+  I watched a video that Avi made for us that helped walked us through most all of the process. His instructions are pretty easy to understand. Without the helpful video, i would have been so lost.
 
-# Planning
+# 2.  Planning
 
-naming of my file "apt-for-rent-cli-gem"
-  - What I want the CLI to do
-  - Allow users to execute the program by typing in apt-for-rent
-  - greet user
-  - show a short list of available apartments
-  - show a menu of option
+  What I want the CLI to do
+  - user installs gem from rubygems.org
+  - runs program by typing `apt-finder`
+  - program geets the user
+  - shows a short list of available apartments
+  - shows a menu of option
     - ask user to select number from the number list
       - show extra deatails about specific listing
     - show error message if number is invalid
-    - end program when the user types exit
     - show list of option when user type list
+    - end program when the user types exit
 
-  - Sources
-    - where do i find the listings?
+# 3.  Sources
+
+    - which site(s) are easier to scrape the listings?
     - craigslist - read craiglist TOS
-      - I copy some listings to store locally for testng purposes
+      - I copy some listings to store locally for testng
     - http://www.apartmentfinder.com/
     - https://www.renthop.com/nyc-apartments-for-rent
     - http://www.nakedapartments.com/renter/listings/search
     - StreetEasy
     - http://www.brickunderground.com/blog/2012/01/8_best_websites_for_finding_a_no_fee_apt_in_new_york_city
 
-What is a [Cli](https://en.wikipedia.org/wiki/Command-line_interface) [Gem](http://guides.rubygems.org/what-is-a-gem/)? You can read more about it.
+  I eneded up with Apartmentfinder.com.
 
  - how i got stuck on the part where the i get info from another url
 
-I will give you a step by step on how to build a Cli Gem.
-
-Apartment for rent listings here in NYC. One of the site I attempted to grab data from was Craigslist. Everything went well until I saw this: ![A search for craigslist scraper]({{ site.url }}/assets/screenshot.png) After seeing this in the search result, I decided to look for another website.
-
 Lets get started. Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [RVM](https://rvm.io/rvm/install) installed on your system.
 
-To check if you have the following installed, run the commands in terminal:
+check if you have the following installed, run the commands in terminal:
 
 * `ruby -v` Check for Ruby version(s)
 
-* `ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-darwin14]`
+*=>`ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-darwin14]`*
 
+optional
 * `rvm -v` Check the Ruby Version Manager
 
 * `rvm gemset create <name>` creates a new [gemset](https://rvm.io/gemsets)
@@ -214,7 +214,13 @@ require 'nokogiri'
 require 'pry'
 ```
 
+Publishing the gem on [rubygems.org](rubygems.org)
+apt_finder version 0.1.0 was published on rubygems.org. I ran into an issue trying to use the gem so I thought that I may have messed up somewhere building the gem. I deceided to delete the gem published on rubygems.org and followed instruction to [`gem yank`](http://help.rubygems.org/kb/gemcutter/removing-a-published-rubygem).
 
+gem build apt_finder.gemspec
+WARNING:  See http://guides.rubygems.org/specification-reference/ for help
+ERROR:  While executing gem ... (Gem::InvalidSpecificationException)
+    ["bin/apt-finder"] are not files
 
-
+    git commit new code first
 
