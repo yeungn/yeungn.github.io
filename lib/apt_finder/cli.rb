@@ -27,7 +27,7 @@ class AptFinder::CLI
         puts ""
         puts "Description"
         puts "-----------------------------------------------"
-        puts doc.search('section.description').text.strip.gsub(/\n|\r/, '').gsub(/\s+/, ' ')
+        puts doc.css('section.description').text.strip.gsub(/\n|\r/, '').gsub(/\s+/, ' ')
         puts ""
         puts "Enter the number of bedrooms:"
         bedrooms = gets.strip
@@ -35,15 +35,23 @@ class AptFinder::CLI
         if bedrooms >= "2"
           puts "not available"
         elsif bedrooms == "0"
-          puts doc.css('div.name')[0].text.strip
-          puts doc.css('#lease-terms .length')[0].text.strip
-          puts doc.css('div.rent')[0].text.strip
-          puts doc.css('div.available-now')[0].text.strip
+          if doc.css('div.name')[0].text.downcase.strip.include?("studio")
+            puts doc.css('div.name')[0].text.strip
+            puts doc.css('#lease-terms .length')[0].text.strip
+            puts doc.css('div.rent')[0].text.strip
+            puts doc.css('div.available-now')[0].text.strip
+          else 
+            puts "not available"
+          end
         elsif bedrooms == "1"
-          puts doc.css('div.name')[4].text.strip
-          puts doc.css('#lease-terms .length').text.strip
-          puts doc.css('div.rent')[4].text.strip
-          puts doc.css('div.available-now')[4].text.strip
+          if doc.css('div.name')[4].text.downcase.strip.include?("1 bedroom")
+            puts doc.css('div.name')[4].text.strip
+            puts doc.css('#lease-terms .length').text.strip
+            puts doc.css('div.rent')[4].text.strip
+            puts doc.css('div.available-now')[4].text.strip
+          else
+            puts "not available"
+          end
         end
 
       elsif input == "list"
