@@ -5,6 +5,44 @@ permalink: /building-a-cli-gem/
 date:   2016-09-15 17:23:54
 ---
 
+Goal today is to write about the process on building a [CLI](https://en.wikipedia.org/wiki/Command-line_interface) [Ruby Gem](https://rubygems.org/). This simple application will allow a user to grab the latest apartment listing rentals available.
+
+# Getting Started
+
+What you need to build this CLI Gem:
+
+  1.  [Ruby](https://www.ruby-lang.org/en/)
+  2.  [RVM](https://rvm.io/) (optional)
+  3.  [Sublime Text](https://www.sublimetext.com/) *(my choice at the time of this writing)*
+  4.  [Terminal](https://en.wikipedia.org/wiki/Terminal_(OS_X)) (Mac)
+  5.  [Ruby Gem Account](https://rubygems.org/sign_up)
+
+  The first thing I did I watched a video that Avi made for us and helped walked us through most all of the process. The only part he did not include is the site that we will be picking to get data from. His instructions are pretty easy to understand. If it wasnt for the video that were availible to me, I dont think I can come up with this all by myself.
+
+# Planning
+
+naming of my file "apt-for-rent-cli-gem"
+  - What I want the CLI to do
+  - Allow users to execute the program by typing in apt-for-rent
+  - greet user
+  - show a short list of available apartments
+  - show a menu of option
+    - ask user to select number from the number list
+      - show extra deatails about specific listing
+    - show error message if number is invalid
+    - end program when the user types exit
+    - show list of option when user type list
+
+  - Sources
+    - where do i find the listings?
+    - craigslist - read craiglist TOS
+      - I copy some listings to store locally for testng purposes
+    - http://www.apartmentfinder.com/
+    - https://www.renthop.com/nyc-apartments-for-rent
+    - http://www.nakedapartments.com/renter/listings/search
+    - StreetEasy
+    - http://www.brickunderground.com/blog/2012/01/8_best_websites_for_finding_a_no_fee_apt_in_new_york_city
+
 What is a [Cli](https://en.wikipedia.org/wiki/Command-line_interface) [Gem](http://guides.rubygems.org/what-is-a-gem/)? You can read more about it.
 
  - how i got stuck on the part where the i get info from another url
@@ -175,31 +213,6 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 ```
-
-Planning:
-name of file "apt-for-rent-cli-gem ""
-  - What I want the CLI to do
-  - Allow users to execute the program by typing in apt-for-rent
-  - greet user
-  - show a short list of available apartments
-  - show a menu of option
-    - ask user to select number from the number list
-      - show extra deatails about specific listing
-    - show error message if number is invalid
-    - end program when the user types exit
-    - show list of option when user type list
-
-  - Sources
-    - where do i find the listings?
-    - craigslist - read craiglist TOS
-      - I copy some listings to store locally for testng purposes
-    - http://www.apartmentfinder.com/
-    - https://www.renthop.com/nyc-apartments-for-rent
-    - http://www.nakedapartments.com/renter/listings/search
-    - StreetEasy
-    - http://www.brickunderground.com/blog/2012/01/8_best_websites_for_finding_a_no_fee_apt_in_new_york_city
-
-
 
 
 
