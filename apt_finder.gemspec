@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   end
   spec.bindir        = "bin"
   spec.executables   = ["apt_finder"]
-  spec.require_paths = ["lib"]
+  spec.require_paths = ["lib", "lib/apt_finder"]
 
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
