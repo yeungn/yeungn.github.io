@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Building a Cli Gem
-permalink: /building-a-cli-gem/
+title: How to build a Cli Gem
+permalink: /how-to-build-a-cli-gem/
 date:   2016-09-15 17:23:54
 ---
 
-Goal today is to write about the process on building a [CLI](https://en.wikipedia.org/wiki/Command-line_interface) [Ruby Gem](https://rubygems.org/). This simple application will allow a user to grab the latest apartment listing rentals available.
+Building my CLI application that will allow a user to find the latest apartment listing rentals available on Apartmentfinder.com.
 
 # Getting Started
 
@@ -13,79 +13,43 @@ What you need to build this CLI Gem:
 
   1.  [Ruby](https://www.ruby-lang.org/en/)
   2.  [RVM](https://rvm.io/) (optional)
-  3.  [Sublime Text](https://www.sublimetext.com/) *(my choice at the time of this writing)*
+  3.  [Sublime Text](https://www.sublimetext.com/) or any text editor
   4.  [Terminal](https://en.wikipedia.org/wiki/Terminal_(OS_X)) (Mac)
+  5.  [Github Account](https://github.com/)
   5.  [Ruby Gem Account](https://rubygems.org/sign_up)
 
-  The first thing I did I watched a video that Avi made for us and helped walked us through most all of the process. The only part he did not include is the site that we will be picking to get data from. His instructions are pretty easy to understand. If it wasnt for the video that were availible to me, I dont think I can come up with this all by myself.
+  The first thing I did, I watched a couple videos that Avi made for us and that really helped walked me through most of the process. 
+
+  The applicatin will look like this:
+
+  <img src="/assets/apt_finder.gif">
 
 # Planning
 
-naming of my file "apt-for-rent-cli-gem"
-  - What I want the CLI to do
-  - Allow users to execute the program by typing in apt-for-rent
-  - greet user
-  - show a short list of available apartments
-  - show a menu of option
-    - ask user to select number from the number list
-      - show extra deatails about specific listing
-    - show error message if number is invalid
-    - end program when the user types exit
-    - show list of option when user type list
+Finding a website to get data from:
+  - `http://www.apartmentfinder.com/New-York/New-York-Apartments`
 
-  - Sources
-    - where do i find the listings?
-    - craigslist - read craiglist TOS
-      - I copy some listings to store locally for testng purposes
-    - http://www.apartmentfinder.com/
-    - https://www.renthop.com/nyc-apartments-for-rent
-    - http://www.nakedapartments.com/renter/listings/search
-    - StreetEasy
-    - http://www.brickunderground.com/blog/2012/01/8_best_websites_for_finding_a_no_fee_apt_in_new_york_city
+What I want the CLI to do
+  - allow users to run the program by typing in apt_finder
+  - show a short list of available apartments
+  - show a menu of options
+  - ask user to select number from the number list
+  - show extra details about specific listing
+  - show error message if number is invalid
+  - end program when the user types exit
+  -show list of option when user type list
 
 What is a [Cli](https://en.wikipedia.org/wiki/Command-line_interface) [Gem](http://guides.rubygems.org/what-is-a-gem/)? You can read more about it.
 
+I should have wrote this while working on the Gem. I am trying to remember as much as a I can at the moment, so some steps might not be in order and/or missing. If anything is confusing or doesn't make any sense, feel free to contact [me](mailto:nin.yeung@gmail.com).
+ 
  - how i got stuck on the part where the i get info from another url
 
-I will give you a step by step on how to build a Cli Gem.
+# Step 1 *(setting up files)*
 
-Apartment for rent listings here in NYC. One of the site I attempted to grab data from was Craigslist. Everything went well until I saw this: ![A search for craigslist scraper]({{ site.url }}/assets/screenshot.png) After seeing this in the search result, I decided to look for another website.
+We will be using a gem called bundler to generate some files for this Cli project.
 
-Lets get started. Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [RVM](https://rvm.io/rvm/install) installed on your system.
-
-To check if you have the following installed, run the commands in terminal:
-
-* `ruby -v` Check for Ruby version(s)
-
-* `ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-darwin14]`
-
-* `rvm -v` Check the Ruby Version Manager
-
-* `rvm gemset create <name>` creates a new [gemset](https://rvm.io/gemsets)
-- `rvm gemset use <gemset name>` switchs over to the new gemset created
-- `rvm gemset delete <gemset name>` if you need to delete
-
-I named my gemset apt-finder
-
-```
-rvm gemset create apt-finder
-ruby-2.2.1 - #gemset created /Users/nin/.rvm/gems/ruby-2.2.1@apt-finder
-ruby-2.2.1 - #generating apt-finder wrappers........
-```
-
-to switch over and use the created gemset
-
-`rvm gemset use apt-finder`
-
-```
-Using ruby-2.2.1 with gemset apt-finder
-```
-
-Now that we got that outof the way.
-
-Next we will be using a gem called bundler to generate some files for this gem project, but first we will need to install the gem.
-
-check to see if you have the gem installed
+Check if you have the gem installed
 
 `gem list`
 
@@ -98,9 +62,7 @@ Fetching: bundler-1.13.1.gem (100%)
 Successfully installed bundler-1.13.1
 ```
 
-Lets use bundler to help generate some files for us.
-
-<!-- Depending on your system, you may or may not be prompted with set up. -->
+Using bundler to help generate some files for us.
 
 `bundler gem apt_finder`
 
@@ -134,9 +96,11 @@ create a new executable file in the bin directory
 
 `cd bin`
 
-`touch apt-finder`
+`touch apt_finder`
 
-`apt-finder` is not setup with executable permission. to change this we need to change the permisson.
+`apt_finder` 
+
+The new file is not setup with executable permission.
 
 `l`
 
@@ -162,6 +126,7 @@ drwxr-xr-x  15 nin  staff   510B Sep 13 13:54 ..
 -rwxr-xr-x   1 nin  staff   131B Sep 13 13:54 setup
 ```
 
+Changing the permission to that file
 
 `chmod +x apt-finder`
 
@@ -195,26 +160,3 @@ lets try running that again
 ./bin/apt-finder
 Welcome to Apt Finder
 ```
-
-Now we're all set up and ready to plan our program.
-
-1. I will try to find a site that is easy for me to scrape
-2. what i would like is for a user to install this gem run the program by typing in apt-list
-3. after the user types apt-list scrape the current list and display listings on the users screen.
-4. give the user the option to select the listing by number and after selection shw the deatils of that listing
-5. if number is not a valid option then prompt the user to type the valid options
-
-Adding dependencies in gemspec
-- nokogiri
-- pry
-
-```
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
-```
-
-
-
-
-
