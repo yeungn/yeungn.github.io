@@ -1,7 +1,6 @@
 class AptFinder::CLI
   def call
     puts "Welcome to Apt Finder"
-
     listings
     menu
   end
@@ -29,31 +28,34 @@ class AptFinder::CLI
         puts "-----------------------------------------------"
         puts doc.css('section.description').text.strip.gsub(/\n|\r/, '').gsub(/\s+/, ' ')
         puts ""
-        puts "Enter the number of bedrooms:"
+        puts "Enter the number of bedrooms that you would like more info on:"
+        puts "0 = studio | 1 = one bedrooom | 2 = two bedroom"
         bedrooms = gets.strip
 
-        if bedrooms >= "2"
-          puts "not available"
-        elsif bedrooms == "0"
-          if doc.css('div.name')[0].text.downcase.strip.include?("studio")
-            puts doc.css('div.name')[0].text.strip
-            puts doc.css('#lease-terms .length')[0].text.strip
-            puts doc.css('div.rent')[0].text.strip
-            puts doc.css('div.available-now')[0].text.strip
-          else 
-            puts "not available"
-          end
+        if bedrooms == "0"
+          doc.css('div.name')[0] != nil
+          # doc.css('div.name')[0].text.downcase.strip.include?("studio")
+          puts doc.css('div.name')[0].text.strip
+          # puts doc.css('#lease-terms .length')[0].text.strip
+          puts doc.css('div.rent')[0].text.strip
+          puts doc.css('div.available-now')[0].text.strip
         elsif bedrooms == "1"
-          if doc.css('div.name')[4].text.downcase.strip.include?("1 bedroom")
-            puts doc.css('div.name')[4].text.strip
-            puts doc.css('#lease-terms .length').text.strip
-            puts doc.css('div.rent')[4].text.strip
-            puts doc.css('div.available-now')[4].text.strip
-          else
-            puts "not available"
-          end
+          doc.css('div.name')[4] != nil
+          # doc.css('div.name')[4].text.downcase.strip.include?("1 bedroom")
+          puts doc.css('div.name')[4].text.strip
+          # puts doc.css('#lease-terms .length').text.strip
+          puts doc.css('div.rent')[4].text.strip
+          puts doc.css('div.available-now')[4].text.strip
+        elsif bedrooms == "2"
+          doc.css('div.name')[9] != nil
+          # doc.css('div.name')[9].text.downcase.strip.include?("studio")
+          puts doc.css('div.name')[9].text.strip
+          # puts doc.css('#lease-terms .length')[9].text.strip
+          puts doc.css('div.rent')[9].text.strip
+          puts doc.css('div.available-now')[9].text.strip
+        else
+          puts "not available"
         end
-
       elsif input == "list"
         listings
       elsif input == "exit"
