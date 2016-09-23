@@ -21,8 +21,8 @@ class AptFinder::CLI
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i <= 10
-        doc = Nokogiri::HTML(open(listings[input.to_i - 1][2]))
-
+        doc = Nokogiri::HTML(open(AptFinder::Listings.all[input.to_i - 1][2]))
+    
         puts ""
         puts "Description"
         puts "-----------------------------------------------"
@@ -32,25 +32,16 @@ class AptFinder::CLI
         puts "0 = studio | 1 = one bedrooom | 2 = two bedroom"
         bedrooms = gets.strip
 
-        if bedrooms == "0"
-          doc.css('div.name')[0] != nil
-          # doc.css('div.name')[0].text.downcase.strip.include?("studio")
+        if bedrooms == "0" && doc.css('div.name')[0] != nil
           puts doc.css('div.name')[0].text.strip
-          # puts doc.css('#lease-terms .length')[0].text.strip
           puts doc.css('div.rent')[0].text.strip
           puts doc.css('div.available-now')[0].text.strip
-        elsif bedrooms == "1"
-          doc.css('div.name')[4] != nil
-          # doc.css('div.name')[4].text.downcase.strip.include?("1 bedroom")
+        elsif bedrooms == "1" && doc.css('div.name')[4] != nil
           puts doc.css('div.name')[4].text.strip
-          # puts doc.css('#lease-terms .length').text.strip
           puts doc.css('div.rent')[4].text.strip
           puts doc.css('div.available-now')[4].text.strip
-        elsif bedrooms == "2"
-          doc.css('div.name')[9] != nil
-          # doc.css('div.name')[9].text.downcase.strip.include?("studio")
+        elsif bedrooms == "2" && doc.css('div.name')[9] != nil && doc.css('div.name')[9].text.downcase.include?("2 bedroom")
           puts doc.css('div.name')[9].text.strip
-          # puts doc.css('#lease-terms .length')[9].text.strip
           puts doc.css('div.rent')[9].text.strip
           puts doc.css('div.available-now')[9].text.strip
         else
