@@ -5,7 +5,7 @@ class AptFinder::Listings
   def self.listings
     doc = Nokogiri::HTML(open("http://www.apartmentfinder.com/New-York/New-York-Apartments"))
 
-    doc.css('div.listingContent')[0..10].each_with_index do |list, index|
+    doc.css('div.listingContent')[0..9].each_with_index do |list, index|
       title = list.css('div.listingTitle').text.strip
       price = list.css('span.altRentDisplay').text.strip
       link = list.css('div.listingTitle a').attr('href').value
