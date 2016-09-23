@@ -28,7 +28,7 @@ class AptFinder::CLI
         puts "-----------------------------------------------"
         puts doc.css('section.description').text.strip.gsub(/\n|\r/, '').gsub(/\s+/, ' ')
         puts ""
-        puts "Enter the number of bedrooms that you would like more info on:"
+        puts "Enter the number of bedroom(s) that you would like more info on:"
         puts "0 = studio | 1 = one bedrooom | 2 = two bedroom"
         bedrooms = gets.strip
 
