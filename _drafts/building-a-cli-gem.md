@@ -25,11 +25,11 @@ I've provide links throughout to help keep this wrtiing shorter.
 
 What is a [Cli](https://en.wikipedia.org/wiki/Command-line_interface) [Gem](http://guides.rubygems.org/what-is-a-gem/)? You can read more about it.
 
-The first thing I did, I watched a couple videos that Avi made for us that really helped walked me through most of the process. 
+The first thing I did, I watched a couple videos that Avi made for us that really helped walked me through most of the process.
 
 # Planning
 
-I should have wrote this while working on the Gem. Going back and trying to remember my thought process is pretty hard. So for now I will try to share as much as a I can and will update the post if something new comes to mind.
+I should have wrote this while working on the Gem. Going back and trying to remember my thought process is pretty hard. So for now I will try to share as much as I can and will update the post if something new comes to mind.
 
 Finding a website to get listings from:
   - `http://www.apartmentfinder.com/New-York/New-York-Apartments`
@@ -97,7 +97,7 @@ create a new executable file in the bin directory
 
 `touch apt_finder`
 
-`apt_finder` 
+`apt_finder`
 
 The new file is not setup with executable permission.
 
@@ -162,7 +162,13 @@ Welcome to Apt Finder
 
 YAY!
 
+Grabbing the data that we want to display to our users
 
+  <img src="/assets/data-scrape.gif">
 
+Publishing the Gem to Rubygems.org
 
+  <img src="/assets/publish-gem.gif">
+
+You can find the code for this project [here]("https://github.com/yeungn/apt-finder-cli-gem")
 
