@@ -1,13 +1,20 @@
 ---
 layout: page
-title: How to build a Cli Gem
-permalink: /how-to-build-a-cli-gem/
-date:   2016-09-15 17:23:54
+title: Building a Cli Gem
+permalink: /building-a-cli-gem/
+date:   2016-09-26
 ---
 
-# 1.  Getting Started
+I will explain some parts of how I build my CLI application. This Cli program will allow a user to see a list of apartment listing rentals available on Apartmentfinder.com.
 
-What you need to build this CLI Gem:
+The applicatin will look something similar to this:
+
+  <img src="/assets/apt_finder.gif">
+
+
+I've provide links throughout to help keep this wrtiing shorter.
+
+# What you need to build this CLI Gem:
 
   1.  [Ruby](https://www.ruby-lang.org/en/)
   2.  [RVM](https://rvm.io/) (optional)
@@ -16,15 +23,15 @@ What you need to build this CLI Gem:
   5.  [Github Account](https://github.com/)
   6.  [Ruby Gem Account](https://rubygems.org/sign_up)
 
-  The first thing I did, I watched a couple videos that Avi made for us and that really helped walked me through most of the process. 
+What is a [Cli](https://en.wikipedia.org/wiki/Command-line_interface) [Gem](http://guides.rubygems.org/what-is-a-gem/)? You can read more about it.
 
-  The applicatin will look like this:
+The first thing I did, I watched a couple videos that Avi made for us that really helped walked me through most of the process.
 
-  <img src="/assets/apt_finder.gif">
+# Planning
 
-# 2.  Planning
+I should have wrote this while working on the Gem. Going back and trying to remember my thought process is pretty hard. So for now I will try to share as much as I can and will update the post if something new comes to mind.
 
-Finding a website to get data from:
+Finding a website to get listings from:
   - `http://www.apartmentfinder.com/New-York/New-York-Apartments`
 
 What I want the CLI to do
@@ -36,12 +43,6 @@ What I want the CLI to do
   - show error message if number is invalid
   - end program when the user types exit
   -show list of option when user type list
-
-  I eneded up with Apartmentfinder.com.
-
-I should have wrote this while working on the Gem. I am trying to remember as much as a I can at the moment, so some steps might not be in order and/or missing. If anything is confusing or doesn't make any sense, feel free to contact [me](mailto:nin.yeung@gmail.com).
- 
- - how i got stuck on the part where the i get info from another url
 
 # Step 1 *(setting up files)*
 
@@ -96,7 +97,7 @@ create a new executable file in the bin directory
 
 `touch apt_finder`
 
-`apt_finder` 
+`apt_finder`
 
 The new file is not setup with executable permission.
 
@@ -158,3 +159,16 @@ lets try running that again
 ./bin/apt-finder
 Welcome to Apt Finder
 ```
+
+YAY!
+
+Grabbing the data that we want to display to our users
+
+  <img src="/assets/data-scrape.gif">
+
+Publishing the Gem to Rubygems.org
+
+  <img src="/assets/publish-gem.gif">
+
+You can find the code for this project [here]("https://github.com/yeungn/apt-finder-cli-gem")
+
