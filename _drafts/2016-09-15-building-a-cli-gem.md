@@ -24,7 +24,6 @@ What you need to build this CLI Gem:
 
 # 2.  Planning
 
-<<<<<<< HEAD
 Finding a website to get data from:
   - `http://www.apartmentfinder.com/New-York/New-York-Apartments`
 
@@ -44,7 +43,6 @@ I should have wrote this while working on the Gem. I am trying to remember as mu
  
  - how i got stuck on the part where the i get info from another url
 
-<<<<<<< HEAD
 # Step 1 *(setting up files)*
 
 We will be using a gem called bundler to generate some files for this Cli project.
