@@ -170,5 +170,5 @@ Publishing the Gem to Rubygems.org
 
   <img src="/assets/publish-gem.gif">
 
-You can find the code for this project [here]("https://github.com/yeungn/apt-finder-cli-gem")
+You can find the code for this project [here](https://github.com/yeungn/apt-finder-cli-gem)
 
