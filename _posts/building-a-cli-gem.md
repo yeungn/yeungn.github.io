@@ -2,7 +2,7 @@
 layout: page
 title: Building a Cli Gem
 permalink: /building-a-cli-gem/
-date:   2016-09-15 17:23:54
+date:   2016-09-26
 ---
 
 I will explain some parts of how I build my CLI application. This Cli program will allow a user to see a list of apartment listing rentals available on Apartmentfinder.com.
