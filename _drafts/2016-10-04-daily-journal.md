@@ -1,8 +1,8 @@
 ---
 layout: page
-title: 10/03/2016 daily-journal
-permalink: /10-03-2016-daily-journal/
-date:   2016-10-03
+title: 10/04/2016 daily-journal
+permalink: /10-04-2016-daily-journal/
+date:   2016-10-04
 ---
 
 today I am starting to work with another classmate on the TTT with AI. Trying to explain how the code I have from the previous partner. Not understanding the code is slowing down my progress.

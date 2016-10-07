@@ -1,8 +1,10 @@
-{% assign words = content | number_of_words %}
-  {% if words < 360 %}
-  1 min
-{% else %}
- {{ words | divided_by:180 }} mins read
-{% endif %}
+<div>
+  {% assign words = content | number_of_words %}
+    {% if words < 360 %}
+      1 min
+    {% else %}
+      {{ words | divided_by:180 }} mins read
+  {% endif %}
 
-{{content | number_of_words}} words
+  {{content | number_of_words}} words
+</div>
