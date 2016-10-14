@@ -1,4 +1,3 @@
----
 layout: post
 title: sinatra
 permalink: /another-post/
@@ -15,3 +14,4 @@ to use activerecord
 in our `development group`, we'll add two other gem
   add `tux` interactive console that pre-loads our database and ActiveRecord relationships
   add `sqlite` database adapter
+
