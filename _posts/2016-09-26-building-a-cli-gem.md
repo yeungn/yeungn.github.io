@@ -1,13 +1,12 @@
----
-layout: page
+layout: post
 title: Building a Cli Gem
 permalink: /building-a-cli-gem/
 date:   2016-09-26
 ---
 
-I will explain some parts on how I build my CLI application. This Cli program will allow a user to see a list of apartment listing rentals available on Apartmentfinder.com.
+I will explain some parts of how I build my CLI application. This Cli program will allow a user to see a list of apartment listing rentals available on Apartmentfinder.com.
 
-The application will look something similar to this:
+The applicatin will look something similar to this:
 
   <img src="/assets/apt_finder.gif">
 
@@ -170,5 +169,9 @@ Publishing the Gem to Rubygems.org
 
   <img src="/assets/publish-gem.gif">
 
+<<<<<<< HEAD
 You can find the code for this project [here](https://github.com/yeungn/apt-finder-cli-gem)
+=======
+You can find the code for this project [apt_finder](https://github.com/yeungn/apt-finder-cli-gem)
+>>>>>>> 1227711f7c79a0f693dec966a5cae4feba75a3e5
 
