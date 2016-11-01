@@ -5,28 +5,29 @@ permalink: /how-to-create-a-sinatra-project-from-the-begining/
 date:   2016-10-28 10:53
 ---
 
-Here is my step by step on creating my Sinatra project
+Here are some steps to building my Job Listing Sinatra CRUD web application.
 
-  I am calling my project job_listings for now until I think of a better name.
+  I have not came up with agod name yet, so for now its called "job listings" until I can think of a better name.
 
-  Create a new directory from the command line
+  1 - Create a new directory from the command line
     `mkdir job_listings` - creates a new directory
     `cd job_listings` - switchs from the current directory over to the new `job_listings` directory
 
     `git init` - initializes a git repo on my local machine
     `bundle init` - creates a new gemfile
 
-  In github, created a new repository and copied the url given
+  2 - On my github account I created a new repository and copied the url given
 
     ### Picture
 
-    `git remote add origin git@github.com:yeungn/job_listings.git` - links my local git repo to github
+    `git remote add origin git@github.com:yeungn/job_listings.git` - links the current working directory git repo to github
 
-  So for the moment, my directory looks like this
+  My directory looks like this
     .git (hidden file)
     Gemfile
 
-  Adding the nessecary gems for my project
+  3 - Adding the nessecary gems for my project
+
     source 'http://rubygems.org'
     gem 'sinatra'
     gem 'activerecord', :require => 'active_record'
@@ -40,60 +41,92 @@ Here is my step by step on creating my Sinatra project
     gem 'rake'
     gem 'require_all' - given a directory path will load all files
 
-  `bundle install`
+    `bundle install`
 
-  config.ru
+  4 - config.ru
     require `bundler` - loads gemfile
     Bundler.require - loads gems
     run SinatraApplication
 
-    give it a test. open up the terminal in mac and type rackup config.ru
+    Now is a good time to test. open up the terminal (mac) and type rackup config.ru
 
-  lets create a new directory and file config/environment.rb
-
-  set an adapter and tell our program how to connect to the database
-
-  ```
-  ActiveRecord::Base.establish_connection(
-    :adapter => "sqlite3",
-    :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
-  )
-  ```
+    We can now move that code. Lets create a new directory and file config/environment.rb
 
 
-  Now I am thinking about tables that I would need
-    users
-      name
-      email
-      password
-      apply_jobs
-      favorite_jobs
-    job_listing
-      title
-      company
-      type
-      location
-      description
+    sets an adapter and tell our program how to connect to the database
 
-  Some features I want in my program
-    Search
-    Categories
-    Types
-    User
-      create a new user
-      user can log in
-        can view favorited jobs
-          can add additional info. contact name, notes on status, status of application
-      user can log out
-    Companies
-      create a new profile
-      list jobs available
-      posted date
+    ```
+    ActiveRecord::Base.establish_connection(
+      :adapter => "sqlite3",
+      :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
+    )
+    ```
+
+    I am going to grab the file structure from a previous lab.
+
+    ### File Structure
+
+    ```
+    ├── Gemfile
+    ├── Rakefile
+    ├── app
+    │   ├── controllers
+    │   │   └── application_controller.rb
+    │   │   └── jobs_controller.rb
+    │   │   └── users_controller.rb
+    │   ├── models
+    │   │   ├── job.rb
+    │   │   └── user.rb
+    │   └── views
+    │       ├── index.erb
+    │       ├── layout.erb
+    │       ├── jobs
+    │       │   ├── edit.erb
+    │       │   ├── new.erb
+    │       │   ├── show.erb
+    │       │   └── index.erb
+    │       └── users
+    │           ├── edit.erb
+    │           └── login.erb
+    │           └── new.erb
+    │           └── show.erb
+    ├── config
+    │   └── environment.rb
+    ├── config.ru
+    ├── db
+    │   ├── development.sqlite
+    │   ├── migrate
+    ```
+
+    Now I am thinking about tables and columns that I would need in my database
+      users
+        name
+        email
+        password
+      job_listing
+        title
+        company
+        type
+        location
+        description
+
+    here is what my migration file will look like
+
+    ```
+    create_table :jobs do |t|
+      t.string :title
+      t.string :company
+      t.string :job_type
+      t.string :location
+      t.text :description
+      t.integer :user_id
+      t.timestamps
+    end
+    ```
 
   Inspired by this recent site GarysGuide.com
 
-
-How to render textarea text to a formatted text in html
+  How to render textarea text to a formatted text in html
 
 
 # Fwitter Group Project
@@ -134,47 +167,7 @@ Remember! The goal at The Flatiron School is not to do, it is to *learn*. Make s
 
 ## Instructions
 
-### File Structure
 
-```
-├── CONTRIBUTING.md
-├── Gemfile
-├── Gemfile.lock
-├── LICENSE.md
-├── README.md
-├── Rakefile
-├── app
-│   ├── controllers
-│   │   └── application_controller.rb
-│   ├── models
-│   │   ├── tweet.rb
-│   │   └── user.rb
-│   └── views
-│       ├── index.erb
-│       ├── layout.erb
-│       ├── tweets
-│       │   ├── create_tweet.erb
-│       │   ├── edit_tweet.erb
-│       │   ├── show_tweet.erb
-│       │   └── tweets.erb
-│       └── users
-│           ├── create_user.erb
-│           └── login.erb
-├── config
-│   └── environment.rb
-├── config.ru
-├── db
-│   ├── development.sqlite
-│   ├── migrate
-│   │   ├── 20151124191332_create_users.rb
-│   │   └── 20151124191334_create_tweets.rb
-│   ├── schema.rb
-│   └── test.sqlite
-└── spec
-    ├── controllers
-    │   └── application_controller_spec.rb
-    └── spec_helper.rb
-```
 
 ### Gemfile and environment.rb
 

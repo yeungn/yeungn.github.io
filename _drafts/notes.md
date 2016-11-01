@@ -24,3 +24,4 @@ or equal ||=
 farther: for physical distance
 further: figurative distance
 
+https://jobspotting.com/en/manifesto/
