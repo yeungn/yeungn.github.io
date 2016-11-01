@@ -1,1 +1,0 @@
-notes rake db:create_migration NAME=
