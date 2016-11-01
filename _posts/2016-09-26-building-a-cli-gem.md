@@ -5,9 +5,9 @@ permalink: /building-a-cli-gem/
 date:   2016-09-26
 ---
 
-I will explain some parts of how I build my CLI application. This Cli program will allow a user to see a list of apartment listing rentals available on Apartmentfinder.com.
+I will explain some parts on how I build my CLI application. This Cli program will allow a user to see a list of apartment listing rentals available on Apartmentfinder.com.
 
-The applicatin will look something similar to this:
+The application will look something similar to this:
 
   <img src="/assets/apt_finder.gif">
 
