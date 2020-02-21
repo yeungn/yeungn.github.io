@@ -32,7 +32,6 @@ try {
 module.exports = {
     siteMetadata: {
         siteUrl: config.siteUrl,
-        pathPrefix: "/yeungn.github.io",
     },
     plugins: [
         /**
