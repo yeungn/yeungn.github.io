@@ -51,7 +51,7 @@ copyright:
   msg: yeungn # This is a mandatory attribute for copyright to be displayed
 
 user:
-  display: true # setting it to false will remove the header image and bio
+  display: false # setting it to false will remove the header image and bio
                 # Note that user settings come wholesale, it does not have the 
                 # granular enabling or disabling as with the 'preferences'
                 # or the site-wide settings.
